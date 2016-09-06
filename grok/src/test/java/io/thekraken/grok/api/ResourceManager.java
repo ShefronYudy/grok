@@ -16,4 +16,6 @@ public final class ResourceManager {
     public static final String NASA = "src/test/resources/nasa/";
 
     public static final String IP = "src/test/resources/ip";
+    
+    public static final String FILE = "src/test/resources/file.txt";
 }

@@ -1,0 +1,33 @@
+[2016-05-18 02:52:16,017] [CacheScheduler_Worker-2] () (ClientExecuteUtil.java:433) ERROR com.ai.appframe2.complex.service.impl.client.timeout.ClientExecuteUtil - 业务方法执行超时(接口类:com.asiainfo.crm.common.service.interfaces.IBaseSV,方法:getAllBsOperation,调用超时15秒)
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.FutureTask$Sync.innerGet(FutureTask.java:228)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:91)
+	at com.ai.appframe2.complex.service.impl.client.timeout.ClientExecuteUtil.invokeWithTimeout(ClientExecuteUtil.java:424)
+	at com.ai.appframe2.complex.service.impl.client.BaseClient.invokeWithTimeout(BaseClient.java:127)
+	at com.asiainfo.crm.common.service.ejb.IBaseSVClient.getAllBsOperation(IBaseSVClient.java:437)
+	at com.asiainfo.crm.common.cache.BsOperationCacheImpl.getData(BsOperationCacheImpl.java:34)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.getCacheData(AbstractCache.java:267)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.refreshData(AbstractCache.java:74)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.refresh(AbstractCache.java:55)
+	at com.ai.appframe2.complex.cache.job.CronJob.execute(CronJob.java:40)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:529)
+[2016-05-18 02:52:16,018] [CacheScheduler_Worker-2] () (CronJob.java:53) ERROR com.ai.appframe2.complex.cache.job.CronJob - cache数据refresh的job执行失败
+java.lang.Exception: java.lang.RuntimeException: java.lang.RuntimeException: 业务方法执行超时(接口类:com.asiainfo.crm.common.service.interfaces.IBaseSV,方法:getAllBsOperation,调用超时15秒)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.getCacheData(AbstractCache.java:275)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.refreshData(AbstractCache.java:74)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.refresh(AbstractCache.java:55)
+	at com.ai.appframe2.complex.cache.job.CronJob.execute(CronJob.java:40)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:529)
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: 业务方法执行超时(接口类:com.asiainfo.crm.common.service.interfaces.IBaseSV,方法:getAllBsOperation,调用超时15秒)
+	at com.asiainfo.crm.common.service.ejb.IBaseSVClient.getAllBsOperation(IBaseSVClient.java:459)
+	at com.asiainfo.crm.common.cache.BsOperationCacheImpl.getData(BsOperationCacheImpl.java:34)
+	at com.ai.appframe2.complex.cache.impl.AbstractCache.getCacheData(AbstractCache.java:267)
+	... 5 more
+Caused by: java.lang.RuntimeException: 业务方法执行超时(接口类:com.asiainfo.crm.common.service.interfaces.IBaseSV,方法:getAllBsOperation,调用超时15秒)
+	at com.ai.appframe2.complex.service.impl.client.timeout.ClientExecuteUtil.invokeWithTimeout(ClientExecuteUtil.java:434)
+	at com.ai.appframe2.complex.service.impl.client.BaseClient.invokeWithTimeout(BaseClient.java:127)
+	at com.asiainfo.crm.common.service.ejb.IBaseSVClient.getAllBsOperation(IBaseSVClient.java:437)
+	... 7 more
+[2016-05-18 02:52:30,174] [<ASYN-WORK-POOL#1-ID:13>] () (CRMSocketServiceImpl.java:80) ERROR com.asiainfo.crm.inter.exe.socket.CRMSocketServiceImpl - 服务接入时间=2016-05-18 02:52:30-|服务结束时间=2016-05-18 02:52:30-|本次调用耗时>>9ms，输入报文>>{"Request":{"BusiCode":"1062","BusiParams":{"channelId":"11","identCode":"240120160518025158NcmTlateQcugUM","identCodeLevel":"01","msisdn":"13591950191"}},"PubInfo":{"ClientIP":"","CountyCode":"","InterfaceId":"","InterfaceType":"99","OpId":"CBOSS","OrgId":"","RegionCode":"","TransactionId":"12486493","TransactionTime":"20160518025230"}}输出报文>>{"Response":{"ErrorInfo":{"Message":"成功","Hint":"成功","Code":"0000"},"RetInfo":{"identCode":"240120160518025158NcmTlateQcugUM","msisdn":"13591950191","resultCode":"00"}}}
